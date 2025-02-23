@@ -4,95 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            display: flex;
+            background-color: #ffffff;
             color: #333;
         }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
+        nav {
+            width: 250px;
+            background: #f8f9fa;
+            color: #333;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #ddd;
+            margin-bottom: 15px;
         }
         nav ul {
             list-style: none;
             padding: 0;
-            text-align: center;
-            background: #444;
+            width: 100%;
         }
         nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s;
             font-weight: bold;
         }
+        nav ul li:hover {
+            background: #e9ecef;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        .submenu {
+            display: none;
+            background: #dee2e6;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .submenu li {
+            padding: 10px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .submenu li:hover {
+            background: #ced4da;
+        }
+        .submenu a {
+            font-weight: normal;
+        }
+        .contato {
+            margin-top: auto;
+            padding-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        .container {
+            margin-left: 270px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
         section {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
         }
         .projeto {
-            background: #e3e3e3;
-            padding: 15px;
+            background: #e9ecef;
+            padding: 20px;
             margin-top: 10px;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         footer {
             text-align: center;
-            padding: 10px;
-            background: #333;
-            color: white;
+            padding: 15px;
+            background: #f8f9fa;
+            color: #333;
             margin-top: 20px;
+            border-radius: 12px;
+        }
+        .dropdown-indicator {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        /* Estilos específicos para a seção "Sobre Mim" */
+        #sobre-mim {
+            background: transparent; /* Remove o fundo branco */
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: none; /* Remove a sombra */
+        }
+        #sobre-mim h3 {
+            font-size: 16px; /* Diminui o tamanho da fonte do título */
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #555; /* Deixa o título mais discreto */
+        }
+        #sobre-mim p {
+            font-size: 14px; /* Diminui o tamanho da fonte do texto */
+            color: #666; /* Deixa o texto mais discreto */
+            line-height: 1.5;
         }
     </style>
+    <script>
+        function toggleSubmenu() {
+            var submenu = document.getElementById("submenu-projetos");
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Lucas Vaz</h1>
-        <p>Farmacêutico | Acadêmico de Ciência de Dados</p>
-    </header>
     <nav>
+        <div class="profile-name">Lucas Vaz</div>
+        <div class="profile-pic" style="background-image: url('avatar.jpg'); background-size: cover; background-position: center;"></div>
+        <!-- Seção "Sobre Mim" -->
+        <section id="sobre-mim">
+            <h3>Sobre Mim</h3>
+            <p>Sou graduado em farmácia pela Universidade Federal do Piauí (UFPI) e mestre em Ciências Farmacêuticas pelo Programa de Pós-Graduação em Ciências Farmacêuticas (PPGCF/UFPI). Atualmente, estudo Tecnologia em Ciência de Dados pela Universidade Presbiteriana Mackenzie. 
+                Este é um espaço em que pretendo publicar meus estudos assim como projetos desenvolvidos ao longo do curso.</p>
+        </section>
         <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#inicio">Início</a></li>
+            <li onclick="toggleSubmenu()">Projetos <span class="dropdown-indicator">▼</span>
+                <ul id="submenu-projetos" class="submenu">
+                    <li><a href="#projeto1">Projeto 1</a></li>
+                    <li><a href="#projeto2">Projeto 2</a></li>
+                </ul>
+            </li>
         </ul>
+        <div class="contato">
+            <p>Email: lucasvazcas@gmail.com</p>
+            <p><a href="https://www.linkedin.com/in/lucasvazcas/">LinkedIn</a> | <a href="https://github.com/lucasvazcastro/">GitHub</a></p>
+        </div>
     </nav>
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Sou graduado em farmácia pela Universidade Federal do Piauí (UFPI) e mestre em Ciências Farmacêuticas pelo Programa de Pós-Graduação em Ciências Farmacêuticas (PPGCF/UFPI). Atualmente, estudo Tecnologia em Ciência de Dados pela Universidade Presbiteriana Mackenzie. 
-            Este é um espaço em que pretendo publicar meus estudos assim como projetos desenvolvidos ao longo do curso.</p>
-    </section>
-    <section id="projetos">
-        <h2>Projetos</h2>
-        <div class="projeto">
-            <h3>Projeto 1</h3>
-            <p>Descrição do projeto.</p>
-        </div>
-        <div class="projeto">
-            <h3>Projeto 2</h3>
-            <p>Descrição do projeto.</p>
-        </div>
-    </section>
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Email: lucasvazcas@gmail.com</p>
-        <p>Redes sociais: <a href="https://www.linkedin.com/in/lucasvazcas/">LinkedIn</a> | <a href="https://github.com/lucasvazcastro/">GitHub</a></p>
-    </section>
-    <footer>
-        <p>&copy; 2025 Lucas Vaz. Todos os direitos reservados.</p>
-    </footer>
+    <div class="container">
+        <section id="projetos">
+            <h2>Último Projeto Publicado</h2>
+            <div class="projeto">
+                <h3>Projeto 2</h3>
+                <p>Descrição do projeto.</p>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2025 Seu Nome. Todos os direitos reservados.</p>
+        </footer>
+    </div>
 </body>
 </html>
